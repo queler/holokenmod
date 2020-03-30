@@ -10,7 +10,7 @@ android:
 before_install:
   docker run --rm -u $(id -u):$(id -g) -v $(pwd):/repo registry.gitlab.com/fdroid/docker-executable-fdroidserver:latest
 script:
-- "./gradlew assembleDebug"
+- "fdroid lint com.holokenmod"
 deploy:
   skip_cleanup: true
   provider: releases
