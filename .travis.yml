@@ -1,5 +1,3 @@
-services:
-  - docker
 language: android
 android:
   components:
@@ -7,10 +5,10 @@ android:
   - build-tools-23.0.2
   - android-22
   - android-21
-before_install:
-  docker run --rm -u $(id -u):$(id -g) -v $(pwd):/repo registry.gitlab.com/fdroid/docker-executable-fdroidserver:latest
+
 script:
-- "fdroid lint com.holokenmod"
+- git rev-parse HEAD
+
 deploy:
   skip_cleanup: true
   provider: releases
