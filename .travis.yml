@@ -7,7 +7,10 @@ android:
   - android-21
 
 script:
-- git rev-parse HEAD
+- commit=`git rev-parse HEAD`
+- pwd
+- ls ..
+
 
 deploy:
   skip_cleanup: true
