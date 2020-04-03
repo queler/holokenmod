@@ -9,9 +9,13 @@ android:
 script:
 -  pip: pip3 --timeout 100 --retries 10
 - commit=`git rev-parse HEAD`
-- git clone git@gitlab.com:fdroid/fdroidserver.git fds
-- python3 fds/setup.py install
-- fdroid --help
+- git clone https://gitlab.com/fdroid/fdroidserver.git fds
+- fd=`pwd`/fds/fdroid
+- $fd --help
+- git clone https://gitlab.com/fdroid/fdroiddata.git fdd
+- pushd fdd
+- $fd build -v com.holokenmod:20
+
 
 
 
