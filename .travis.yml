@@ -1,6 +1,6 @@
 language: android
 env:
-  pip=pip3 --timeout 100 --retries 10
+  -pip=pip3 --timeout 100 --retries 10
 
 addons:
   apt:
@@ -10,6 +10,7 @@ addons:
       - python3-venv
       - rsync
       - zipalign
+    update: true
 android:
   components:
   - tools
