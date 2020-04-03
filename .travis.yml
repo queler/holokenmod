@@ -7,9 +7,12 @@ android:
   - android-21
 
 script:
+-  pip: pip3 --timeout 100 --retries 10
 - commit=`git rev-parse HEAD`
-- pwd
-- ls ..
+- git clone git@gitlab.com:fdroid/fdroidserver.git fds
+- python3 fds/setup.py install
+- fdroid --help
+
 
 
 deploy:
