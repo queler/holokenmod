@@ -7,10 +7,18 @@ android:
   - android-21
 
 script:
--  pip: pip3 --timeout 100 --retries 10
 - commit=`git rev-parse HEAD`
 - git clone https://gitlab.com/fdroid/fdroidserver.git fds
-- fd=`pwd`/fds/fdroid
+- pushd fds
+- apt-get install git default-jdk-headless python3-pip python3-venv rsync zipalign
+- rm -rf env
+- pyvenv env
+- . env/bin/activate
+- pip: pip3 --timeout 100 --retries 10
+- $pip install --upgrade babel pip setuptools
+- $pip install -e .
+
+- fd=`pwd`/fdroid
 - $fd --help
 - git clone https://gitlab.com/fdroid/fdroiddata.git fdd
 - pushd fdd
