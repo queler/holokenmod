@@ -1,14 +1,10 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 22
-    buildToolsVersion '29.0.3'
-    lintOptions {
-        disable "ExpiredTargetSdkVersion"
-    }
+    compileSdkVersion 36
     defaultConfig {
         applicationId "com.holokenmod"
-        minSdkVersion 8
-        targetSdkVersion 22
+        minSdkVersion 24
+        targetSdkVersion 36
     }
 
     buildTypes {
@@ -16,6 +12,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+    }
+    namespace 'com.holokenmod'
+    lint {
+        disable 'ExpiredTargetSdkVersion'
     }
 }
 repositories {
