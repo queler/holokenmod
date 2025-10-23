@@ -194,7 +194,7 @@ public class DLX extends Object
         if (root.GetRight() == root)
         {
         	foundsolution = new ArrayList<Integer>(trysolution);
-            NumSolns++;
+        	NumSolns++;
             return;
         }
         chosenCol = ChooseMinCol();
