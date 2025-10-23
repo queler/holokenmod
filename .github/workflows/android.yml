@@ -22,5 +22,22 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
     - name: Build with Gradle
       run: ./gradlew build
+
+    # Upload artifacts so they are available from the run
+    - name: Upload APK(s)
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-apks
+        path: app/build/outputs/apk/**/*.apk
+        # optional: set retention days (default retention configured in repo/org settings)
+        retention-days: 30
+
+    - name: Upload full build directory (optional)
+      uses: actions/upload-artifact@v4
+      with:
+        name: gradle-build
+        path: app/build
+        retention-days: 30
