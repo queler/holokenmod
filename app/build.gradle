@@ -14,12 +14,10 @@ android {
         }
     }
     namespace 'com.holokenmod'
-    lint {
-        disable 'ExpiredTargetSdkVersion'
-    }
 }
 repositories {
     google()
+    mavenCentral()
  }
 
 dependencies {
